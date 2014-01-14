@@ -1,0 +1,73 @@
+<head>
+  <title>simple-db-meteor</title>
+  <style type="text/css">
+	.alert {
+		display: none;
+	}
+
+	.remove{
+	width:15px;
+	height:20px;
+	cursor:pointer;
+	float:right;
+	margin-top:-10px;
+	margin-right:-5px;
+	border : 1px solid white;
+	-moz-border-radius: 50%;
+ 	 -webkit-border-radius:50%;
+	padding-left:5px;
+	}
+
+
+	.remove:hover {
+	color:black;
+	border-color:black;
+	}
+
+
+  </style>
+</head>
+
+<body>
+	<div id="app">  <!-- APP -->
+        <h1>Node Database Meteor framework</h1>
+
+        <div id="input-form">
+            {{> inputDB}}
+        </div>
+        <div class="alert added">
+          Added !
+        </div>
+        <div id="db-atlas">
+            {{> DBelements}}
+        </div>
+
+    </div> <!-- END APP -->
+</body>
+
+
+
+<template name="inputDB">
+	<form>
+		  <h1>INPUT IN DATABASE !</h1>
+		  <input id="nodeTitle" placeholder="First Name"required />
+
+		  <div class="submit">
+		  	<input type="submit" value="Add New node" />
+		  </div>
+	</form>
+
+</template>
+
+
+<template name="DBelements">
+    <h2>//See All Nodes in th DB</h2>
+    <ul >
+        {{#each nodes}}
+    <li>
+       <div class="remove">X</div>
+       {{this.nodeTitle}} 
+    </li>
+        {{/each}}
+    </ul>
+</template>
